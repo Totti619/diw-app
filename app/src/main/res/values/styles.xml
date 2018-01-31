@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.WithActionBar"/>
+
+    <style name="TitleTheme" >
+         <item name="android:textColor">@color/titol</item>
+         <item name="android:textStyle">bold</item>
+     </style>
+
+    <style name="ButtonTheme"/>
+
+    <style name="ButtonTextAppearenceTheme">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="tema_puntuacions" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+
+</resources>

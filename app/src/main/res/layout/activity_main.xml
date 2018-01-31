@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/portrait_layout_marginBottom"
+    android:layout_marginTop="@dimen/portrait_layout_marginTop"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.antonio.applicacio.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+
+        android:layout_width="@dimen/landscape_element_width"
+        android:layout_height="@dimen/portrait_element_height"
+        android:layout_weight="4.5"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/aplicacion"
+        android:textSize="@dimen/portrait_tamaño_aplicacion"
+        android:theme="@style/TitleTheme" />
+
+    <Button
+        android:id="@+id/buttonJugar"
+        style="@style/ButtonTextAppearenceTheme"
+        android:layout_width="@dimen/landscape_element_width"
+        android:layout_height="@dimen/portrait_element_height"
+        android:layout_weight="769.72"
+        android:text="@string/jugar"
+        android:textSize="@dimen/portrait_button_textSize" />
+
+    <Button
+        android:id="@+id/buttonConfigurar"
+        style="@style/ButtonTextAppearenceTheme"
+        android:layout_width="@dimen/landscape_element_width"
+        android:layout_height="@dimen/portrait_element_height"
+        android:layout_weight="575.36"
+        android:text="@string/configurar"
+        android:textSize="@dimen/portrait_button_textSize" />
+
+    <Button
+        android:id="@+id/buttonAcercaDe"
+        style="@style/ButtonTextAppearenceTheme"
+        android:layout_width="@dimen/landscape_element_width"
+        android:layout_height="@dimen/portrait_element_height"
+        android:layout_weight="555.31"
+        android:onClick="llancarAcercaDe"
+        android:text="@string/acerca_de"
+        android:textSize="@dimen/portrait_button_textSize" />
+
+    <Button
+        android:id="@+id/buttonSalir"
+        style="@style/ButtonTextAppearenceTheme"
+        android:layout_width="@dimen/landscape_element_width"
+        android:layout_height="@dimen/portrait_element_height"
+        android:layout_weight="289.07"
+        android:background="@drawable/degradat"
+        android:text="@string/salir"
+        android:textSize="@dimen/portrait_button_textSize" />
+
+    <android.gesture.GestureOverlayView
+        android:id="@+id/gestures"
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:fadeOffset="800"
+        android:gestureStrokeType="multiple"
+        android:layout_weight="6936.39" />
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:theme="@style/TitleTheme"
+
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/landscape_element_height"
+        android:layout_weight="0.19"
+        android:gravity="bottom|center_vertical|center_horizontal"
+        android:text="@string/aplicacion"
+        android:textSize="@dimen/landscape_tamaño_aplicacion" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/landscape_marginHorizontal"
+        android:layout_marginRight="@dimen/landscape_marginHorizontal"
+        android:layout_weight="0.30"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.antonio.applicacio.MainActivity">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="@style/ButtonTextAppearenceTheme"
+                android:id="@+id/buttonJugar"
+                android:layout_width="@dimen/landscape_element_width"
+                android:layout_height="@dimen/landscape_element_height"
+                android:layout_weight="1"
+                android:text="@string/jugar"
+                android:textSize="@dimen/landscape_button_textSize" />
+
+            <Button
+                style="@style/ButtonTextAppearenceTheme"
+                android:id="@+id/buttonConfigurar"
+                android:layout_width="@dimen/landscape_element_width"
+                android:layout_height="@dimen/landscape_element_height"
+                android:layout_weight="1"
+                android:text="@string/configurar"
+                android:textSize="@dimen/landscape_button_textSize" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="@style/ButtonTextAppearenceTheme"
+                android:id="@+id/buttonAcercaDe"
+                android:layout_width="@dimen/landscape_element_width"
+                android:layout_height="@dimen/landscape_element_height"
+                android:layout_weight="1"
+                android:text="@string/acerca_de"
+                android:textSize="@dimen/landscape_button_textSize" />
+
+            <Button
+                style="@style/ButtonTextAppearenceTheme"
+                android:id="@+id/buttonSalir"
+                android:layout_width="@dimen/landscape_element_width"
+                android:layout_height="@dimen/landscape_element_height"
+                android:layout_weight="1"
+                android:text="@string/salir"
+                android:textSize="@dimen/landscape_button_textSize" />
+        </TableRow>
+
+    </TableLayout>
+    <android.gesture.GestureOverlayView
+        android:id="@+id/gestures"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:gestureStrokeType="multiple"
+        android:fadeOffset="800"
+        android:layout_weight="12.25" />
+
+</LinearLayout>

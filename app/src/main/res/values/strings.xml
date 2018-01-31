@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Aplicacio26</string>
+    <string name="aplicacion">Aplicación</string>
+    <string name="jugar">Jugar</string>
+    <string name="configurar">Configurar</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="salir">Salir</string>
+    <string name="text_acercade">Esta aplicación ha sido desarrollada como ejemplo en el módulo de Diseño de Interfícies Web para demostrar cómo se pueden lanzar nuevas actividades desde la actividad desde la actividad principal.</string>
+
+    <string name="pa_key">preferencies_principal</string>
+    <string name="pa1_title">Reproducir música</string>
+    <string name="pa1_summary">Se reproduce música de fondo</string>
+    <string name="pa1_key">musica</string>
+    <string name="pa2_title">Tipo de gráficos</string>
+    <string name="pa2_key">graficos</string>
+    <string name="pa2_summary">Se escoge la representación de gráficos</string>
+    <string name="pa3_title">Numero de fragmentos</string>
+    <string name="pa3_key">fragmentos</string>
+    <string name="pa3_summary">En cuantos trozos se divide un asteroide</string>
+    <string name="pa4_title">Sensores</string>
+    <string name="pa4_key">sensors</string>
+    <string name="pa4_summary">Escoge el tipo de sensor que se utilizara para dirigir la nave</string>
+    <string name="marginHorizontal">10dp</string>
+    <string name="paddingVertical">4dp</string>
+    <string name="altre_texte">Altre texte</string>
+    <string name="asteroide">Asteroide</string>
+    <string name="pa5_key">Puntuacions</string>
+    <string name="pa5_title">Puntuacions</string>
+
+    <string name="memoria_externa_title">memoria_externa_title</string>
+    <string name="memoria_externa_key">memoria_externa_key</string>
+    <string name="memoria_externa_summary">memoria_externa_summary</string>
+    <string name="guardar_puntuacions_title">guardar_puntuacions_title</string>
+    <string name="guardar_puntuacions_key">guardar_puntuacions_key</string>
+    <string name="guardar_puntuacions_summary">guardar_puntuacions_summary</string>
+</resources>

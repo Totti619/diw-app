@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicacio26</string>
+    <string name="aplicacion">Aplication</string>
+    <string name="jugar">Play</string>
+    <string name="configurar">Configuration</string>
+    <string name="acerca_de">Information</string>
+    <string name="salir">Exit</string>
+    <string name="text_acercade">Esta aplicación ha sido desarrollada como ejemplo en el módulo de Diseño de Interfícies Web para demostrar cómo se pueden lanzar nuevas actividades desde la actividad desde la actividad principal.</string>
+    <string name="pa_key">PA_Key</string>
+    <string name="pa1_title">PA1_Title</string>
+    <string name="pa1_summary">PA1_summary</string>
+    <string name="pa1_key">PA1_key</string>
+    <string name="pa2_title">pa2_title</string>
+    <string name="pa2_key">pa2_key</string>
+    <string name="pa2_summary">pa2_summary</string>
+    <string name="pa3_title">pa3_title</string>
+    <string name="pa3_key">pa3_key</string>
+    <string name="pa3_summary">pa3_summary</string>
+    <string name="marginHorizontal">10dp</string>
+    <string name="paddingVertical">4dp</string>
+    <string name="altre_texte">Altre texte</string>
+    <string name="asteroide">Asteroide</string>
+</resources>

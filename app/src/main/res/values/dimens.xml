@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- portrait -->
+
+    <dimen name="portrait_element_width">275sp</dimen>
+    <dimen name="portrait_element_height">40sp</dimen>
+    <dimen name="portrait_tamaño_aplicacion">28sp</dimen>
+    <dimen name="portrait_layout_marginBottom">0sp</dimen>
+    <dimen name="portrait_layout_marginTop">30sp</dimen>
+    <dimen name="portrait_button_textSize">20sp</dimen>
+
+    <!-- end portrait-->
+    <!-- landscape -->
+
+    <!--<dimen name="landscape_element_width">275sp</dimen>-->
+    <!--<dimen name="landscape_element_height">40sp</dimen>-->
+    <!--<dimen name="landscape_tamaño_aplicacion">28sp</dimen>-->
+    <!--<dimen name="landscape_layout_marginBottom">200sp</dimen>-->
+    <!--<dimen name="landscape_layout_marginTop">30sp</dimen>-->
+    <!--<dimen name="landscape_button_textSize">20sp</dimen>-->
+
+    <dimen name="landscape_element_width">275sp</dimen>
+    <dimen name="landscape_element_height">60sp</dimen>
+    <dimen name="landscape_tamaño_aplicacion">28sp</dimen>
+    <dimen name="landscape_layout_marginBottom">0sp</dimen>
+    <dimen name="landscape_layout_marginTop">0sp</dimen>
+    <dimen name="landscape_button_textSize">20sp</dimen>
+    <dimen name="landscape_marginHorizontal">60sp</dimen>
+    <dimen name="marginHorizontal">10dp</dimen>
+    <dimen name="paddingVertical">12dp</dimen>
+
+    <!-- end landscape -->
+</resources>

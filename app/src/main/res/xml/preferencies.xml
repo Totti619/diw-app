@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pa_key">
+    <!-- Crea un checkbox-->
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:title="@string/pa1_title"
+        android:key="@string/pa1_key"
+        android:summary="@string/pa1_summary"
+        />
+    <!-- Permet seleccionar un element d'una llista d'opcions -->
+    <!-- entries: Llista d'opcions -->
+    <!-- entryValues: Valors associats a la llista d'opcions -->
+    <ListPreference
+        android:defaultValue="1"
+        android:title="@string/pa2_title"
+        android:entries="@array/tipusGrafics"
+        android:entryValues="@array/tipusGraficsValors"
+        android:key="@string/pa2_key"
+        android:summary="@string/pa2_summary"
+        />
+    <!-- Permet entrar un valor -->
+    <EditTextPreference
+        android:defaultValue="3"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pa3_title"
+        android:key="@string/pa3_key"
+        android:summary="@string/pa3_summary"
+        />
+    <ListPreference
+        android:defaultValue="1"
+        android:title="@string/pa4_title"
+        android:entries="@array/sensors"
+        android:entryValues="@array/sensorsValors"
+        android:key="@string/pa4_key"
+        android:summary="@string/pa4_summary"
+        />
+    <ListPreference
+        android:defaultValue="1"
+        android:title="@string/guardar_puntuacions_title"
+        android:key="@string/guardar_puntuacions_key"
+        android:summary="@string/guardar_puntuacions_summary"
+        android:entries="@array/guardar_puntuacions_entries"
+        android:entryValues="@array/guardar_puntuacions_entryValues"
+        />
+
+</PreferenceScreen>
