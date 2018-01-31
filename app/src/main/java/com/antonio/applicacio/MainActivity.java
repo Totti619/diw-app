@@ -124,6 +124,12 @@ public static MagatzemPuntuacions magatzemPuntuacions;
                 ,"1").equals("3") // FitxerExtern
                 )
             return new MagatzemPuntuacionsFitxerExtern(this);
+        else if(pref.getString(this
+                        .getResources()
+                        .getString(R.string.guardar_puntuacions_key)
+                ,"1").equals("4") // FitxerExtern
+                )
+            return new MagatzemPuntuacionsXML_SAX(this);
         return null;
     }
 
