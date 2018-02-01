@@ -33,4 +33,7 @@
     <string name="guardar_puntuacions_title">guardar_puntuacions_title</string>
     <string name="guardar_puntuacions_key">guardar_puntuacions_key</string>
     <string name="guardar_puntuacions_summary">guardar_puntuacions_summary</string>
+    <string name="missils_title">Num. máximo de misiles a la vez</string>
+    <string name="missils_key">missils_key</string>
+    <string name="missils_summary">Asigna la cantidad máxima de misiles que habra en el juego a la vez</string>
 </resources>

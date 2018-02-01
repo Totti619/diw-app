@@ -26,6 +26,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -60,7 +61,8 @@ public class VistaJoc extends View implements SensorEventListener{
     MediaPlayer mpDispar, mpExplosio;
 
     // Variables pel Missil
-    private Grafic missil;
+    //private Grafic missil;
+    private Grafic missils;
     private static int PAS_VELOCITAT_MISSIL=12;
     private boolean missilActiu=false;
     private int tempsMissil;
@@ -82,10 +84,13 @@ public class VistaJoc extends View implements SensorEventListener{
 
     // Variables per ASTEROIDES
     private Vector<Grafic> asteroides; // Vector amb els asteroides
+    private Vector<GraficMisil> vmissiles;
     private int numAsteroides=5; // Numero inicial de Asteroides
     private int numFragments=3; // Fragments en que es divideix
+    private int numMissils=50;
 
     private Drawable drawableAsteroide[]=new Drawable[numFragments];
+    private Drawable drawableMissil;
 
     public ThreadJoc getFil() {
         return this.fil;
@@ -93,10 +98,15 @@ public class VistaJoc extends View implements SensorEventListener{
 
     public VistaJoc(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        vmissiles=new Vector<GraficMisil>();
         SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Ex 9_1
         numFragments=Integer.parseInt(pref.getString(getResources().getString(R.string.pa3_key),"3"));
+
+
+        numMissils=Integer.parseInt(pref.getString(getResources().getString(R.string.missils_key),"50"));
 
         // Registre el sensor d'orientació i indica gestió d'events.
         mSensorManager=(SensorManager)context.
@@ -115,19 +125,20 @@ public class VistaJoc extends View implements SensorEventListener{
         }
 
         // Declara i obte les imatges
-        Drawable drawableNau, drawableMissil;
+        Drawable drawableNau;
         drawableNau=context.getResources().getDrawable(R.drawable.nau);
 //        drawableAsteroide=context.getResources().getDrawable(R.drawable.asteroide1);
 
         // Obté les preferencies del contexte
         if(pref.getString(getResources().getString(R.string.pa2_key), "1").equals("0")) {
-            // Gràfic vectorial pel Missil
-            ShapeDrawable dMissil=new ShapeDrawable(new RectShape());
-            dMissil.getPaint().setColor(Color.WHITE);
-            dMissil.getPaint().setStyle(Paint.Style.STROKE);
-            dMissil.setIntrinsicWidth(15);
-            dMissil.setIntrinsicHeight(3);
-            drawableMissil=dMissil;
+            // Gràfic vectorial pel Missilfor(int i=0;i<numMissils;i++) {
+                ShapeDrawable dMissil=new ShapeDrawable(new RectShape());
+                dMissil.getPaint().setColor(Color.WHITE);
+                dMissil.getPaint().setStyle(Paint.Style.STROKE);
+                dMissil.setIntrinsicWidth(15);
+                dMissil.setIntrinsicHeight(3);
+                drawableMissil=dMissil;
+           // }
 
             Path pathAsteroide= new Path();
             pathAsteroide.moveTo((float)0.3, (float)0.0);
@@ -173,12 +184,14 @@ public class VistaJoc extends View implements SensorEventListener{
             drawableAsteroide[0] = context.getResources().getDrawable(R.drawable.asteroide1);
             drawableAsteroide[1] = context.getResources().getDrawable(R.drawable.asteroide2);
             drawableAsteroide[2] = context.getResources().getDrawable(R.drawable.asteroide3);
-            drawableMissil=context.getResources().getDrawable(R.drawable.missil1);
+            //for(int i=0;i<numMissils;i++)
+                drawableMissil=context.getResources().getDrawable(R.drawable.missil1);
         }
         // Inicialitza els asteroides
         asteroides=new Vector<Grafic>();
         nau=new Grafic(this, drawableNau);
-        missil=new Grafic(this, drawableMissil);
+        //missil=new Grafic(this, drawableMissil);
+
         for(int i=0; i<numAsteroides; i++) {
             //7for(int j=0;j<numFragments;j++){
                 Grafic asteroide= new Grafic(this, drawableAsteroide[0]);
@@ -250,8 +263,8 @@ public class VistaJoc extends View implements SensorEventListener{
     @Override
     protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(missilActiu)
-            missil.dibuixaGrafic(canvas);
+        for(Grafic misil:vmissiles)
+            misil.dibuixaGrafic(canvas);
         nau.dibuixaGrafic(canvas);
         // Dibuixa els asteroides
         for(Grafic asteroide: asteroides)
@@ -288,15 +301,16 @@ public class VistaJoc extends View implements SensorEventListener{
         }
 
         // Actualizem posicio del missil
-        if(missilActiu){
+        for(GraficMisil missil:vmissiles) if(missil.isMisilActiu()){
             missil.incrementaPos(retard);
             tempsMissil-=retard;
             if(tempsMissil<0){
-                missilActiu=false;
+                missil.setMisilActiu(false);
             }else{
                 for(int i=0; i<asteroides.size(); i++){
                     if(missil.verificaColisio(asteroides.get(i))){
                         destrueixAsteroide(i);
+                        vmissiles.remove(missil);
                         break;
                     }
                 }
@@ -331,7 +345,6 @@ public class VistaJoc extends View implements SensorEventListener{
             }
         }
         asteroides.remove(i);
-        missilActiu=false;
         mpExplosio.start();
 
         // Si no queda cap asteroides en pantalla finalitzar partida
@@ -339,19 +352,21 @@ public class VistaJoc extends View implements SensorEventListener{
             sortir();
         }
     }
-    private void ActivaMissil() {
-        missil.setCenX(nau.getCenX());
-        missil.setCenY(nau.getCenY());
-        missil.setAngle(nau.getAngle());
-        missil.setIncX(Math.cos(Math.toRadians(missil.getAngle()))*
-                PAS_VELOCITAT_MISSIL);
-        tempsMissil= (int)Math.min(
-                this.getWidth()/Math.abs(missil.getIncX()),
-                this.getHeight()/Math.abs(missil.getIncY())
-        )-2;
-        missilActiu=true;
 
-        mpDispar.start();
+    private synchronized void ActivaMissil() {
+            GraficMisil missil=new GraficMisil(this, drawableMissil);
+            missil.setCenX(nau.getCenX());
+            missil.setCenY(nau.getCenY());
+            missil.setAngle(nau.getAngle());
+            missil.setIncX(Math.cos(Math.toRadians(missil.getAngle()))*
+                    PAS_VELOCITAT_MISSIL);
+            tempsMissil= (int)Math.min(
+                    this.getWidth()/Math.abs(missil.getIncX()),
+                    this.getHeight()/Math.abs(missil.getIncY())
+            )-2;
+
+            mpDispar.start();
+            vmissiles.add(missil);
     }
 
     @Override

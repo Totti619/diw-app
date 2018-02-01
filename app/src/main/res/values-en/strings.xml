@@ -21,4 +21,5 @@
     <string name="paddingVertical">4dp</string>
     <string name="altre_texte">Altre texte</string>
     <string name="asteroide">Asteroide</string>
+    <string name="missils_summary">Asigna la cantidad máxima de misiles que habra en el juego a la vez</string>
 </resources>
