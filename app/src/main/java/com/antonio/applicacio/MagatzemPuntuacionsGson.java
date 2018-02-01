@@ -15,7 +15,7 @@ import java.util.Vector;
 public class MagatzemPuntuacionsGson implements MagatzemPuntuacions {
     private String string; // Emmagatzema puntuacions en format JSON
     private Gson gson= new Gson();
-    private Type type=new TypeToken<List<Puntuacio>>() {}.getType();
+    private Type type=new TypeToken<List<Clase>>() {}.getType();
 
     public MagatzemPuntuacionsGson() {
         // Inicialitza uns valors
@@ -26,30 +26,35 @@ public class MagatzemPuntuacionsGson implements MagatzemPuntuacions {
     @Override
     public void guardarPuntuacio(int punts, String nom, long data) {
         //string = llegirString();
-        ArrayList<Puntuacio> puntuacions;
+        Clase obj;
         if(string==null) {
-            puntuacions=new ArrayList<>();
+            obj=new Clase();
         }else{
-            puntuacions=gson.fromJson(string,type);
+            obj=gson.fromJson(string,type);
         }
-        puntuacions.add(new Puntuacio(punts,nom,data));
-        string=gson.toJson(puntuacions, type);
+        obj.puntuacions.add(new Puntuacio(punts,nom,data));
+        string=gson.toJson(obj, type);
         // guardarSTring(string);
     }
 
     @Override
     public Vector<String> llistaPuntuacions(int cantidad) {
         // string= llegirString();
-        ArrayList<Puntuacio> puntuacions;
+        Clase objeto;
         if(string==null){
-            puntuacions=new ArrayList<>();
+            objeto=new Clase();
         }else{
-            puntuacions=gson.fromJson(string,type);
+            objeto=gson.fromJson(string,type);
         }
         Vector<String> salida=new Vector<>();
-        for(Puntuacio puntuacio:puntuacions) {
+        for(Puntuacio puntuacio:objeto.puntuacions) {
             salida.add(puntuacio.getPunts()+" "+puntuacio.getNom());
         }
         return salida;
+    }
+
+    public class Clase {
+        private ArrayList<Puntuacio> puntuacions=new ArrayList<>();
+        private boolean guardad;
     }
 }
