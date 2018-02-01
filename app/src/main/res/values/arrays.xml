@@ -24,6 +24,7 @@
         <item>Fitxer intern</item>
         <item>Fitxer extern</item>
         <item>Fitxer XML</item>
+        <item>GSON</item>
     </string-array>
     <string-array name="guardar_puntuacions_entryValues">
         <item>0</item>
@@ -31,6 +32,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>

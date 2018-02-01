@@ -91,7 +91,7 @@ public static MagatzemPuntuacions magatzemPuntuacions;
 //        mp.start();
 //        mp.seekTo(pos);
 
-        startService(new Intent(this, ServeiMusica.class));
+        //startService(new Intent(this, ServeiMusica.class));
 
         // EX 11.2
 
@@ -127,9 +127,15 @@ public static MagatzemPuntuacions magatzemPuntuacions;
         else if(pref.getString(this
                         .getResources()
                         .getString(R.string.guardar_puntuacions_key)
-                ,"1").equals("4") // FitxerExtern
+                ,"1").equals("4") // XML
                 )
             return new MagatzemPuntuacionsXML_SAX(this);
+        else if(pref.getString(this
+                        .getResources()
+                        .getString(R.string.guardar_puntuacions_key)
+                ,"1").equals("5") // GSON
+                )
+            return new MagatzemPuntuacionsGson();
         return null;
     }
 
