@@ -1,5 +1,7 @@
 package com.antonio.applicacio;
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,9 +15,12 @@ import java.util.Vector;
  */
 
 public class MagatzemPuntuacionsJson implements MagatzemPuntuacions {
+    private final Context context;
     private String string; // Emmagatzema puntuacins en format JSON
 
-    public MagatzemPuntuacionsJson(){
+    public MagatzemPuntuacionsJson(Context context){
+        this.context=context;
+
         string="";
         guardarPuntuacio(45000,"Mi nombre",System.currentTimeMillis());
         guardarPuntuacio(31000,"Otro nombre", System.currentTimeMillis());

@@ -8,7 +8,7 @@ public class Puntuacio {
     private int punts;
     private String nom;
     private long data;
-    public Puntuacio(int puntus, String nom, long data) {
+    public Puntuacio(int punts, String nom, long data) {
         this.punts=punts;
         this.nom=nom;
         this.data=data;

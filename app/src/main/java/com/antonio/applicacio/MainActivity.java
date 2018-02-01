@@ -135,13 +135,13 @@ public static MagatzemPuntuacions magatzemPuntuacions;
                         .getString(R.string.guardar_puntuacions_key)
                 ,"1").equals("5") // GSON
                 )
-            return new MagatzemPuntuacionsGson();
+            return new MagatzemPuntuacionsGson(this);
         else if(pref.getString(this
                         .getResources()
                         .getString(R.string.guardar_puntuacions_key)
                 ,"1").equals("6") // JSON
                 )
-            return new MagatzemPuntuacionsJson();
+            return new MagatzemPuntuacionsJson(this);
         return null;
     }
 
