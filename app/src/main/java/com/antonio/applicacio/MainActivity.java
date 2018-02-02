@@ -142,6 +142,12 @@ public static MagatzemPuntuacions magatzemPuntuacions;
                 ,"1").equals("6") // JSON
                 )
             return new MagatzemPuntuacionsJson(this);
+        else if(pref.getString(this
+                        .getResources()
+                        .getString(R.string.guardar_puntuacions_key)
+                ,"1").equals("7") // SQLite
+                )
+            return new MagatzemPuntuacionsSQLite(this);
         return null;
     }
 
